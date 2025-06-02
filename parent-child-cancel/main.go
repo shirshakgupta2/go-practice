@@ -3,10 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
+	"sync"
 	"time"
 )
 
-func child(ctx context.Context, name string) {
+func child(ctx context.Context, name string, wg *sync.WaitGroup) {
+	defer wg.Done()
 	for {
 		select {
 		case <-ctx.Done():
@@ -19,14 +21,17 @@ func child(ctx context.Context, name string) {
 	}
 }
 
-func parent() {
-	ctx, cancel := context.WithTimeout(context.Background(), 6*time.Second)
+func parent() { 
+	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
 	defer cancel()
-
-	go child(ctx, "A")
-	go child(ctx, "B")
+	var wg sync.WaitGroup
+	wg.Add(2)
+	go child(ctx, "A", &wg)
+	go child(ctx, "B", &wg)
 
 	<-ctx.Done()
+	wg.Wait()
+	fmt.Println("Parent context done:", ctx.Err())
 	fmt.Println("Parent done")
 }
 
