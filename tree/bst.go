@@ -52,5 +52,12 @@ func main() {
 
 
 	k := 2
+	// k := 0
+	// fmt.Print("Enter k: ")
+	// _, err := fmt.Scan(&k)
+	// if err != nil || k <= 0 {
+	// 	fmt.Println("k should be a positive integer")
+	// 	return
+	// }
 	fmt.Println("Kth smallest element:", kthSmallest(root, k))
 }

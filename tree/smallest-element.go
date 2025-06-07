@@ -3,21 +3,21 @@ package main
 
 func kthSmallest(root *TreeNode, k int) int {
 	stack := []*TreeNode{}
-	curr := root
+	currPosition := root
 
-	for curr != nil || len(stack) > 0 {
-		for curr != nil {
-			stack = append(stack, curr)
-			curr = curr.left
+	for currPosition != nil || len(stack) > 0 {
+		for currPosition != nil {
+			stack = append(stack, currPosition)
+			currPosition = currPosition.left
 		}
 
-		curr = stack[len(stack)-1]
+		currPosition = stack[len(stack)-1]
 		stack = stack[:len(stack)-1]
 		k--
 		if k == 0 {
-			return curr.val
+			return currPosition.val
 		}
-		curr = curr.right
+		currPosition = currPosition.right
 	}
 
 	return -1 // If k is invalid

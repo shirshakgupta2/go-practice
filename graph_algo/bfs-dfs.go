@@ -40,7 +40,7 @@ func (g *Graph) BFS(start int) {
 
 	for queue.Len() > 0 {
 		curr := queue.Remove(queue.Front()).(int)
-		fmt.Printf("%d ", curr)
+			fmt.Printf("%d ", curr)
 
 		for _, neighbor := range g.adj[curr] {
 			if !visited[neighbor] {
@@ -51,6 +51,11 @@ func (g *Graph) BFS(start int) {
 	}
 	fmt.Println()
 }
+
+// DFSExample demonstrates a basic implementation of the Depth-First Search (DFS) algorithm.
+// It can be used to traverse or search through graph structures, such as trees or networks.
+// Use Case: Finding all connected components in a graph.
+// It can also be used to explore all paths in a maze or puzzle.
 
 func (g *Graph) DFS(start int) {
 	visited := make(map[int]bool)

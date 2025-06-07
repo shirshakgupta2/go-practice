@@ -1,4 +1,4 @@
-package graphquestion
+package main
 
 
 import (
@@ -15,17 +15,7 @@ type Knight struct {
 	Position Position
 }
 
-func main() {
-	knight := Knight{Position: Position{X: 1, Y: 3}}
-	target := Position{X: 5, Y: 0}
 
-
-	//MINIMUM STEPS TO REACH TARGET POSITION USING BFS
-	stepsWithBFS := knight.minimumStepsToReachBFS(target)
-	fmt.Printf("Minimum steps to reach target (%d, %d): %d\n", target.X, target.Y, stepsWithBFS)
-
-
-}
 
 func (k *Knight) minimumStepsToReachBFS(target Position) int {
 	// Knight's possible moves
