@@ -23,31 +23,29 @@ func (graph *Graph) AddEdge(from, to int, bidirectional bool) {
 
 func main() {
 	//!FIND MINIMUM STEPS TO REACH TARGET POSITION FOR KNIGHT
-	// knight := Knight{Position: Position{X: 1, Y: 3}}
-	// target := Position{X: 5, Y: 0}
-
-	//MINIMUM STEPS TO REACH TARGET POSITION USING BFS
-	// stepsWithBFS := knight.minimumStepsToReachBFS(target)
-	// fmt.Printf("Minimum steps to reach target (%d, %d): %d\n", target.X, target.Y, stepsWithBFS)
+	knight := Knight{Position: Position{X: 1, Y: 3}}
+	target := Position{X: 5, Y: 0}
+	stepsWithBFS := knight.minimumStepsToReachBFS(target)
+	fmt.Printf("Minimum steps to reach target (%d, %d): %d\n", target.X, target.Y, stepsWithBFS)
 
 	//!FIND IF PATH EXISTS
-	// graph := NewGraph()
-	// noOfEdges:=10
-	// edges := [][]int{
-	// 	{4, 3}, {1, 4}, {4, 8}, {1, 7}, {6, 4},
-	// 	{4, 2}, {7, 4}, {4, 0}, {0, 9}, {5, 4},
-	// }
-	// source:=5
-	// destination:=9
-	// fmt.Println("Source to destination path DoesExists:", graph.validPath(noOfEdges, edges, source, destination))
+	graph := NewGraph()
+	noOfEdges:=10
+	edges := [][]int{
+		{4, 3}, {1, 4}, {4, 8}, {1, 7}, {6, 4},
+		{4, 2}, {7, 4}, {4, 0}, {0, 9}, {5, 4},
+	}
+	source:=5
+	destination:=9
+	fmt.Println("Source to destination path DoesExists:", graph.validPath(noOfEdges, edges, source, destination))
 
 	//!FIND JUDGE
-	noOfEdges := 3
+	n := 3
 	trusts := [][]int{
 		{1, 3},
 		{2, 3},
 		{3, 1},
 	}
 	judgegraph := NewGraph()
-	fmt.Println("Judge is:", judgegraph.findJudge(noOfEdges, trusts))
+	fmt.Println("Judge is:", judgegraph.findJudge(n, trusts))
 }
