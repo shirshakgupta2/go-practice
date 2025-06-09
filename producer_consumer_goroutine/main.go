@@ -10,7 +10,7 @@ import (
 // Producer function produces numbers and sends them to channel
 func producer(id int, ch chan<- int, wg *sync.WaitGroup) {
 	defer wg.Done()
-	for i := 0; i < 5; i++ {
+	for range 5 {
 		num := rand.Intn(100)
 		fmt.Printf("Producer %d produced: %d\n", id, num)
 		ch <- num

@@ -73,3 +73,10 @@ func (g *Graph) dfsHelper(node int, visited map[int]bool) {
 		}
 	}
 }
+
+
+func (g *Graph) PrintGraph() {
+	for node, neighbors := range g.adj {
+		fmt.Printf("%d -> %v\n", node, neighbors)
+	}
+}

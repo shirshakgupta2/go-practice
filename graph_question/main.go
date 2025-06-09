@@ -48,4 +48,10 @@ func main() {
 	}
 	judgegraph := NewGraph()
 	fmt.Println("Judge is:", judgegraph.findJudge(n, trusts))
+
+
+	//! NO OF ISLAND
+	fmt.Println("NoOfIsland:",NoOfIsland())
+
+
 }

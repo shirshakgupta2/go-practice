@@ -48,7 +48,7 @@ func (k *Knight) knightmoves(target Position, size int) int {
 				newPosition := Position{X: newX, Y: newY}
 				if newX == target.X && newY == target.Y {
 					return steps
-				} else if isValidPosition(newPosition, size, &mapVisited) {
+				} else if isValidPosition(newPosition, size, mapVisited) {
 					mapVisited[newPosition] = true
 					queue = append(queue, newPosition)
 				}
@@ -59,11 +59,11 @@ func (k *Knight) knightmoves(target Position, size int) int {
 	return steps
 }
 
-func isValidPosition(position Position, size int, mapVisited *map[Position]bool) bool {
+func isValidPosition(position Position, size int, mapVisited map[Position]bool) bool {
 	// Check if position is within bounds
 	if position.X < size && position.Y < size && position.X >= 0 && position.Y >= 0 {
 		// Check if the position has not been visited
-		if !(*mapVisited)[position] {
+		if !mapVisited[position] {
 			return true
 		}
 	}
