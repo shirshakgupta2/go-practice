@@ -24,6 +24,7 @@ func worker(ctx context.Context, id int, jobs <-chan int, wg *sync.WaitGroup) {
 	}
 }
 
+
 func main() {
 	jobs := make(chan int, 10)
 	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)

@@ -31,6 +31,22 @@ func printInfo(f face1) {
 	fmt.Println("Value of b:", f.test2())
 }
 
+type Animal interface {
+	Speak()
+}
+
+type Dog struct {
+	Animal
+}
+
+func (d *Dog) Speak() {
+	fmt.Println("buff buff")
+}
+
+
+
+
+
 func main() {
 	// Create an instance of test and pass to the interface-based function
 	x := &_test{a: 1, b: "test value"}
@@ -39,4 +55,10 @@ func main() {
 	// just that it satisfies the interface
 	fmt.Println(x.test())
 	printInfo(x)
+
+	d := &Dog{}
+	d.Speak()
+	fmt.Println("Hello, World!")
+	
+
 }
